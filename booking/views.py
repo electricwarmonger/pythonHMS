@@ -8,7 +8,7 @@ from .models import Room, Booking
 from .forms import BookingForm
 
 def home(request):
-    rooms = Room.objects.filter(available=True)
+    rooms = Room.objects.filter(is_available=True)
     return render(request, 'booking/home.html', {'rooms': rooms})
 
 @login_required
@@ -32,3 +32,7 @@ def book_room(request, room_id):
 def profile(request):
     bookings = Booking.objects.filter(user=request.user)
     return render(request, 'booking/profile.html', {'bookings': bookings})
+
+
+def contact(request):
+    return render(request, 'booking/contact.html')

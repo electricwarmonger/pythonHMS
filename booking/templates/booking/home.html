@@ -1,20 +1,23 @@
-{% extends 'booking/base.html' %}
+{% extends 'booking/base.html' %} {% block title %}Home{% endblock %} {% block
+content %} {% include 'booking/navbar.html' %}
+<div class="container">
+  <h1>Welcome to Hotel Booking</h1>
+  <p>Find and book your perfect stay.</p>
+  <!-- Add content for the home page -->
 
-{% block title %}Home{% endblock %}
-
-{% block content %}
-    <h2 class="mb-4">Available Rooms</h2>
-    <div class="row">
-        {% for room in rooms %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Room {{ room.room_number }}</h5>
-                    <p class="card-text">Type: {{ room.room_type }}</p>
-                    <p class="card-text">Price: ${{ room.price }}</p>
-                </div>
-            </div>
+  <h2 class="mb-4">Available Rooms</h2>
+  <div class="row">
+    {% for room in rooms %}
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Room {{ room.room_number }}</h5>
+          <p class="card-text">Type: {{ room.room_type }}</p>
+          <p class="card-text">Price: ${{ room.price }}</p>
         </div>
-        {% endfor %}
+      </div>
     </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

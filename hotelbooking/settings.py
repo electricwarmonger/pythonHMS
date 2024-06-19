@@ -129,14 +129,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import os
 
+import os
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hotelbooking_db',  # Name of your database
-        'USER': 'mysql_user',  # Your MySQL username
-        'PASSWORD': 'password',  # Your MySQL password
-        'HOST': 'localhost',  # Or the address of your MySQL server
-        'PORT': '3306',  # Default MySQL port
-    }
-}
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'booking/static'),
+]
