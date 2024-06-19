@@ -4,6 +4,8 @@
     <title>My Profile</title>
 </head>
 <body>
+    {% include 'booking/navbar.html' %}
+    {% comment %} {%extends booking/base.html%} {% endcomment %}
     <h1>My Bookings</h1>
     <ul>
         {% for booking in bookings %}
