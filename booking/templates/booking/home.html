@@ -1,9 +1,39 @@
-{% extends 'booking/base.html' %} {% block title %}Home{% endblock %} {% block
+{% extends 'booking/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+   
+
+    <h3 id="about">About Our Hotel</h2>
+<p>Welcome to our hotel. We offer the best services and amenities.</p>
+
+<h2>Available Rooms</h2>
+    <div class="rooms">
+        {% for room in rooms %}
+
+        <div class="room">
+            <h3>Room {{ room.room_number }} ({{ room.room_type }})</h3>
+            <p>Price: ${{ room.price }}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'booking/base.html' %} {% block title %}Home{% endblock %} {% block
 content %} {% include 'booking/navbar.html' %}
-<div class="container">
-  <h1>Welcome to Hotel Booking</h1>
-  <p>Find and book your perfect stay.</p>
-  <!-- Add content for the home page -->
 
   <h2 class="mb-4">Available Rooms</h2>
   <div class="row">
@@ -20,4 +50,4 @@ content %} {% include 'booking/navbar.html' %}
   </div>
   {% endfor %}
 </div>
-{% endblock %}
+{%endblock%} {% endcomment %}

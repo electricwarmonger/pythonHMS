@@ -36,3 +36,6 @@ def profile(request):
 
 def contact(request):
     return render(request, 'booking/contact.html')
+
+def login(request):
+    return render(request, 'booking/login.html')
