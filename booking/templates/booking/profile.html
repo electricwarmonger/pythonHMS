@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+</head>
+<body>
+    <h1>My Bookings</h1>
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                Room {{ booking.room.room_number }} from {{ booking.check_in }} to {{ booking.check_out }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
