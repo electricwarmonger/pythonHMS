@@ -16,10 +16,6 @@ def home(request):
 
 
 @login_required
-def profile(request):
-    return render(request, 'booking/profile.html')
-
-@login_required
 def booking_room(request, room_id):
     room = Room.objects.get(id=room_id)
     if request.method == 'POST':
@@ -39,7 +35,7 @@ def booking_room(request, room_id):
 @login_required
 def profile(request):
     bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'booking/profile.html', {'bookings': bookings})
+    return render(request, 'booking/home.html', {'bookings': bookings})
 
 
 def contact(request):

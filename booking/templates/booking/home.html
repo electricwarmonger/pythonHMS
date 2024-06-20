@@ -3,6 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+{% load static %}
    
 
 {%include 'booking/profile.html'%}
@@ -11,7 +13,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <h2 id="about ">About Our Hotel</h2>
+    <h1 id="about mb-10">About Our Hotel</h1>
 <h4>Welcome to our hotel. We offer the best services and amenities.</h4>
 <img src='booking\static\booking\images\sasha-kaunas-67-sOi7mVIk-unsplash.jpg' >
 <h2>Available Rooms</h2>
