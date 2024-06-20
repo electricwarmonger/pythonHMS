@@ -2,6 +2,7 @@
 # Create your views here.
 # booking/views.py
 
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Room, Booking
@@ -37,10 +38,18 @@ def profile(request):
 
 
 def contact(request):
-    return render(request, 'booking/contact.html')
+    if request.method == 'POST':
+        #Handling the form submission
+        name =request.POST.get('name')
+        email = request.POST.get('email')
+        message =request.POST.get("message")
+        return HttpResponse('Thank you for message, your feedback and suggestions are appreciated')
+    else:
+        return render(request, 'booking/contact.html')
 
 def login_view(request):
     if request.method == 'POST':
+        
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
