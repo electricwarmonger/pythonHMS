@@ -6,9 +6,20 @@
     <title>Sign Up</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <nav>
+        <ul class="nav ms-5 mt-5 mb-4 d-flex justify-content-between " >          
+        <li><a href="{% url 'home' %}">Home</a></li>
+         <li><a href="{%url 'home'%}#about">About Our Hotel</a></li>
+
+         <li><a href="{% url 'signup' %}">Sign Up</a></li>
+         <li><a href="{% url 'login' %}">Login</a></li>
+         <li><a href="{% url 'contact' %}">Contact</a></li>
+          <!-- Add more navigation links as needed -->
+        </ul>
 </head>
 <body>
     <h2>Sign Up</h2>
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

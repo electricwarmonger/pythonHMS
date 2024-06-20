@@ -4,11 +4,11 @@
 
 {% block content %}
    
-{%include 'booking/navbar.html'%}
+
 {%include 'booking/profile.html'%}
 
-    <h3 id="about">About Our Hotel</h2>
-<p>Welcome to our hotel. We offer the best services and amenities.</p>
+    <h2 id="about ">About Our Hotel</h2>
+<h4>Welcome to our hotel. We offer the best services and amenities.</h4>
 <img src='booking\static\booking\images\sasha-kaunas-67-sOi7mVIk-unsplash.jpg' >
 <h2>Available Rooms</h2>
     <div class="rooms">
@@ -19,7 +19,7 @@
             <p>Price: ${{ room.price }}</p>
         </div>
         {% endfor %}
-    </div>
+    </div> 
 {% endblock %}
 
 
