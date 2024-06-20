@@ -15,7 +15,6 @@ class Room(models.Model):
         ('Double', 'Double'),
         ('Suite', 'Suite'),
     ]
-    image = models.ImageField(upload_to='room_images/') 
     
     room_number = models.CharField(max_length=10)
     room_type = models.CharField(max_length=10, choices=ROOM_TYPES)

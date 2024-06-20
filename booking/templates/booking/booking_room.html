@@ -1,45 +1,5 @@
 {%load static%}
-{% extends 'booking/base.html' %}
-
-
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Rooms</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row">
-            {% for room in rooms %}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{{ room.image.url }}" class="card-img-top" alt="{{ room.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ room.name }}</h5>
-                        <p class="card-text">{{ room.description }}</p>
-                        <p class="card-text"><strong>${{ room.price }}</strong></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            {% if room.is_available %}
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
-                            {% else %}
-                            <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Unavailable</button>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-</body>
-</html>
-
-{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>Book Room</title>
@@ -60,4 +20,4 @@
         <button type="submit">Book</button>
     </form>
 </body>
-</html> {% endcomment %}
+</html>
