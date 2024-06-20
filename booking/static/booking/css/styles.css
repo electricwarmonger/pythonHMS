@@ -7,8 +7,7 @@ header, footer {
 }
 
 .header {
-    /* Set background image */
-    background-image: url("{% static 'booking\images\vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg'%}");
+  background-color: #d88c19;
     /* Set background size */
     background-size: cover;
     /* Set background position */
