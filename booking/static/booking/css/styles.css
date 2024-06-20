@@ -57,6 +57,8 @@ nav ul {
     padding: 0;
     display: flex;
     gap: 1em;
+    background-color: #ccc;
+    color:black;
 }
 
 nav ul li {

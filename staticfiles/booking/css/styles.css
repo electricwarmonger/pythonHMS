@@ -5,6 +5,21 @@ header, footer {
     padding: 10px 0;
     text-align: center;
 }
+.header {
+    /* Set background image */
+    background-image: src"{% static 'booking\images\vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg'%}" alt='bg image';
+  
+    /* Set background size */
+    background-size: cover;
+    /* Set background position */
+    background-position: center;
+    /* Set background attachment */
+    background-attachment: fixed; /* Ensures the background image stays fixed as the page scrolls */
+    /* Set other styles */
+    color: #fff; /* Text color */
+    padding: 100px 0; /* Padding for top and bottom */
+    text-align: center; /* Center align text */
+}
 
 .rooms {
     display: flex;

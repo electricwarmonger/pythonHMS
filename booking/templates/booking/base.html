@@ -12,40 +12,25 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
-    <header class="bg-dark text-white py-3">
+    <header class="bg-dark text-white py-3 ">
       <div class="container">
         <h1>Hotel Draco</h1>
-        <p>Find and book your perfect stay.</p>
+        <p><em>Find and book your perfect stay.</em></p>
         <nav>
-            <ul class="nav ms-5 mt-5 mb-4 d-flex justify-content-between" >          
-              <li><a href="{% url 'home' %}">Home</a></li>
-              <li><a href="{%url 'home'%}#about">About Our Hotel</a></li>
-              <li><a href="{% url 'contact' %}">Contact</a></li>
-              <li><a href="{% url 'login' %}">Login</a></li>
-  
+            <ul class="nav ms-5 mt-5 mb-4 d-flex justify-content-between " >          
+            <li><a href="{% url 'home' %}">Home</a></li>
+             <li><a href="{%url 'home'%}#about">About Our Hotel</a></li>
+
+             <li><a href="{% url 'signup' %}">Sign Up</a></li>
+             <li><a href="{% url 'login' %}">Login</a></li>
+             <li><a href="{% url 'contact' %}">Contact</a></li>
               <!-- Add more navigation links as needed -->
             </ul>
       </div>
     </header>
 
     <main class="container mt-5">
-          <div class="row">
-          <div class="col-lg-2 col-md-4">
-            <img src="booking\static\booking\images\istockphoto-deluxe.jpg" class="img-fluid rounded-circle mb-3" alt="single room card">
-            <p class="text-center">Single Room</p>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <img src="booking\static\booking\images\sasha-kaunas-67-sOi7mVIk-unsplash.jpg" class="img-fluid rounded-circle mb-3" alt="">
-            <p class="text-center">Latin American</p>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <img src="img/pexels-robin-stickel-704973.jpg" class="img-fluid rounded-circle mb-3" alt="">
-            <p class="text-center">New Mexican</p>
-          </div>
         
-        </div> 
-        <br />
-        <hr class="mt-5" />
         {% block content %} {% endblock %}</main>
     <footer class="bg-dark text-white py-3 mt-5">
       <div class="container text-center">

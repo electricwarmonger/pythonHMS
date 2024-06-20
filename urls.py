@@ -21,6 +21,7 @@ from booking import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('booking.urls')),  # Include the booking app URLs
+    path('', include('booking.urls')), 
       path('contact/', views.contact, name='contact'),
+
 ]

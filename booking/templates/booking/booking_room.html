@@ -1,4 +1,5 @@
 {%load static%}
+{% extends 'booking/base.html' %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,25 @@
 </head>
 <body>
     <h1>Book Room {{ room.room_number }}</h1>
+    <main class="container mt-5">
+        <div class="row">
+        <div class="col-lg-2 col-md-4">
+         
+          <img src="{% static 'images\istockphoto-deluxe.jpg' %}" class="img-fluid mb-3" alt="single room card">
+          <p class="text-center">Single Room</p>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <img src="booking\static\booking\images\sasha-kaunas-67-sOi7mVIk-unsplash.jpg" class="img-fluid mb-3" alt="double room">
+          <p class="text-center">Double Room</p>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <img src="img/pexels-robin-stickel-704973.jpg" class="img-fluid mb-3" alt="">
+          <p class="text-center">Suite</p>
+        </div>
+      
+      </div> 
+      <br />
+      <hr class="mt-5" />
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

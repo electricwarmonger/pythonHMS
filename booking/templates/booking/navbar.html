@@ -1,10 +1,8 @@
-{% comment %} {%load static%}
+ {%load static%}
 <nav>
   <ul>
     <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'home' %}#about">About</a></li>
-    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-    <li><a href="{% url 'login' %}">Login</a></li>
-    {% comment %} <li><a href="{% url 'profile' %}">Profile?</a></li> {% endcomment %}
-  {% comment %} </ul>
-</nav> {% endcomment %} 
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+     <li><a href="{% url 'contact' %}">Contact Us</a></li>
+ </ul>
+</nav> 
