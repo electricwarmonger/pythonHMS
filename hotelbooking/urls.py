@@ -29,7 +29,10 @@ from booking import views as booking_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', booking_views.home, name='home'),
-    path('', include('booking.urls')),
+    path('profile/', booking_views.profile, name='profile'),
+    path('booking_room/', booking_views.booking_room, name='booking_room'),
      path('contact/', booking_views.contact, name='contact'),
+            path('signup/', booking_views.signup, name='signup'),
     path('login/', booking_views.login_view, name='login'),
+
 ] 

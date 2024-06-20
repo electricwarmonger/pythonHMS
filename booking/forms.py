@@ -9,6 +9,7 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['check_in', 'check_out']
+        
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True, help_text='Required. Enter a valid email address.')
 

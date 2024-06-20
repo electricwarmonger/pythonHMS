@@ -1,6 +1,45 @@
 {%load static%}
 {% extends 'booking/base.html' %}
+
+
+{% load static %}
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Rooms</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            {% for room in rooms %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ room.image.url }}" class="card-img-top" alt="{{ room.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ room.name }}</h5>
+                        <p class="card-text">{{ room.description }}</p>
+                        <p class="card-text"><strong>${{ room.price }}</strong></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            {% if room.is_available %}
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Book Now</button>
+                            {% else %}
+                            <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Unavailable</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>Book Room</title>
@@ -11,25 +50,14 @@
         <div class="row">
         <div class="col-lg-2 col-md-4">
          
-          <img src="{% static 'images\istockphoto-deluxe.jpg' %}" class="img-fluid mb-3" alt="single room card">
-          <p class="text-center">Single Room</p>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <img src="booking\static\booking\images\sasha-kaunas-67-sOi7mVIk-unsplash.jpg" class="img-fluid mb-3" alt="double room">
-          <p class="text-center">Double Room</p>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <img src="img/pexels-robin-stickel-704973.jpg" class="img-fluid mb-3" alt="">
-          <p class="text-center">Suite</p>
-        </div>
-      
+        
       </div> 
       <br />
-      <hr class="mt-5" />
+      <hr class="mt-5"/>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Book</button>
     </form>
 </body>
-</html>
+</html> {% endcomment %}

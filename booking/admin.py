@@ -8,6 +8,6 @@ admin.site.register(Profile)
 # booking/admin.py
 
 
-admin.site.site_header = "Hotel Booking Administration"
-admin.site.site_title = "Hotel Booking Admin Portal"
+admin.site.site_header = "Hotel Draco Administration"
+admin.site.site_title = "Hotel Draco Admin Portal"
 admin.site.index_title = "Welcome to the Hotel Booking Admin"

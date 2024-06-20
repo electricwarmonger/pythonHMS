@@ -15,6 +15,8 @@ class Room(models.Model):
         ('Double', 'Double'),
         ('Suite', 'Suite'),
     ]
+    image = models.ImageField(upload_to='room_images/') 
+    
     room_number = models.CharField(max_length=10)
     room_type = models.CharField(max_length=10, choices=ROOM_TYPES)
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -31,3 +33,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking by {self.user.username} for {self.room}"
+    

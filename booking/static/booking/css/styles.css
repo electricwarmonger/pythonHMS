@@ -36,14 +36,14 @@ header, footer {
 }
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+    margin: auto;
+    padding: auto;
+    background-color: #d88c19;
 }
 
-nav a {
+nav  {
     float: right;
-    margin: auto;
+   
     display: block;
     text-align:center;
     background-color: #333;
@@ -51,6 +51,21 @@ nav a {
     padding: 14px 16px;
 }
 
+.navbar {
+    background-color: #d8920e; /* orange background color */
+  
+    padding: 1rem;
+}
+
+.navbar a {
+    color: white;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
 
 nav ul {
     list-style: none;
@@ -63,6 +78,12 @@ nav ul {
 
 nav ul li {
     display: inline;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    background-color: #ccc;
+    color:black;
 }
 
 nav ul li a {
