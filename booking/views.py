@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Room, Booking
 from .forms import BookingForm
+from django.contrib.auth import authenticate, login
+
 
 def home(request):
     rooms = Room.objects.filter(is_available=True)
@@ -37,5 +39,14 @@ def profile(request):
 def contact(request):
     return render(request, 'booking/contact.html')
 
-def login(request):
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('profile')
+        else:
+            return render(request, 'booking/login.html', {'error': 'Invalid credentials'})
     return render(request, 'booking/login.html')

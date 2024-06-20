@@ -21,21 +21,20 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="{% url 'home' %}"></a>
             </li>
-            {% comment %} <li><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
+            {% comment %}
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% endcomment %}
             <li><a href="#about">About Our Hotel</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            
+            <li><a href="{% url 'Login' %}">Login</a></li>
+
             <!-- Add more navigation links as needed -->
           </ul>
         </nav>
       </div>
     </header>
-    
-    <main class="container mt-5">
-      {% block content %} {% endblock %}
-    </main>
+
+    <main class="container mt-5">{% block content %} {% endblock %}</main>
     <footer class="bg-dark text-white py-3 mt-5">
       <div class="container text-center">
         <p>&copy; 2024 Hotel Booking System</p>
