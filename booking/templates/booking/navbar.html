@@ -8,7 +8,30 @@
     <li><a href="{% url 'contact' %}">Contact</a></li>
     <!-- Add more navigation links as needed -->
   </ul>
-  <style>
   
+  <style>
+    nav {
+      background-color: #ff6600; /* Orange background */
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .nav li {
+      display: inline;
+      margin-right: 15px;
+    }
+    .nav li a {
+      color: white; /* White text */
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .nav li a:hover {
+      background-color: #e20c00; /* Darker orange on hover */
+    }
+    .nav li a:active {
+      background-color: #cc5200; /* Even darker orange when active */
+    }
   </style>
 </nav>

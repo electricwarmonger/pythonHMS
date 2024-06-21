@@ -7,10 +7,61 @@
     <title>Contact Us g</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     {%csrf_token%}
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 0;
+      }
+      .container {
+          max-width: 600px;
+          margin: 50px auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+          color: #ff6600; /* Orange hue */
+          text-align: center;
+      }
+      label {
+          display: block;
+          margin-bottom: 8px;
+          color: #333;
+      }
+      input[type="text"], input[type="email"], textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+      button {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: #ff6600; /* Orange hue */
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #e65c00; /* Darker orange hue */
+      }
+      p {
+          text-align: center;
+          margin-top: 20px;
+          color: #333;
+      }
+  </style>
   </head>
   <body>
-    {% include 'booking/navbar.html' %} {% comment %} {%extends
-    booking/base.html%} {% endcomment %}
+    {% include 'booking/navbar.html' %}
+     
     <div class="container">
       <h1>Contact Us</h1>
       <form action="#" method="post">

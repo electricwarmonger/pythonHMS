@@ -1,24 +1,52 @@
-{%load static%}
+{% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <hr>
-    <hr>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <header>Welcome, view your bookings here.</header>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
- <header class="navbar">
-        {% include 'booking/navbar.html' %}
-    </header>
 <body>
- 
-    <h1>My Bookings</h1>
-    <ul>
-        {% for booking in bookings %}
-            <li>
-                Room {{ booking.room.room_number }} from {{ booking.check_in }} to {{ booking.check_out }}
-            </li>
-        {% endfor %}
-    </ul>
+   
+        {% include 'booking/navbar.html' %}
+   
+    
+    <div class="container">
+        <h1 class="mt-4 mb-4">My Bookings</h1>
+        <div class="row">
+            {% for booking in bookings %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Room {{ booking.room.room_number }}</h5>
+                            <p class="card-text">Check-in: {{ booking.check_in }}</p>
+                            <p class="card-text">Check-out: {{ booking.check_out }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

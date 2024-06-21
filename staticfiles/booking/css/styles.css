@@ -5,10 +5,9 @@ header, footer {
     padding: 10px 0;
     text-align: center;
 }
+
 .header {
-    /* Set background image */
-    background-image: src"{% static 'booking\images\vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg'%}" alt='bg image';
-  
+  background-color: #d88c19;
     /* Set background size */
     background-size: cover;
     /* Set background position */
@@ -20,7 +19,9 @@ header, footer {
     padding: 100px 0; /* Padding for top and bottom */
     text-align: center; /* Center align text */
 }
-
+.header h1 {
+    font-size: 3rem; /* Example: Set font size */
+}
 .rooms {
     display: flex;
     flex-wrap: wrap;
@@ -34,15 +35,35 @@ header, footer {
 }
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+    margin: auto;
+    padding: auto;
+    background-color: #d88c19;
 }
 
-nav {
+nav  {
+    float: right;
+   
+    display: block;
+    text-align:center;
     background-color: #333;
     color: #fff;
-    padding: 1em;
+    padding: 14px 16px;
+}
+
+.navbar {
+    background-color: #d8920e; /* orange background color */
+  
+    padding: 1rem;
+}
+
+.navbar a {
+    color: white;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
 }
 
 nav ul {
@@ -50,10 +71,18 @@ nav ul {
     padding: 0;
     display: flex;
     gap: 1em;
+    background-color: #ccc;
+    color:black;
 }
 
 nav ul li {
     display: inline;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    background-color: #ccc;
+    color:black;
 }
 
 nav ul li a {
@@ -80,6 +109,9 @@ form input, form textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+h2{
+    margin: 14px, 16px;
+}
 
 form button {
     padding: 0.5em 1em;
@@ -88,4 +120,64 @@ form button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+/* for contact */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light gray background */
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #ff7f50; /* Orange color */
+}
+
+form {
+    display: grid;
+    grid-gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #e64a19; /* Darker shade of orange on hover */
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
 }

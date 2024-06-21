@@ -3,12 +3,16 @@
 # booking/views.py
 
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Room, Booking
 from .forms import BookingForm
 from django.contrib.auth import authenticate, login
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import SignUpForm
+ 
 
 def home(request):
     rooms = Room.objects.filter(is_available=True)
@@ -16,26 +20,32 @@ def home(request):
 
 
 @login_required
+
 def booking_room(request, room_id):
-    room = Room.objects.get(id=room_id)
+    # Retrieve the room object using room_id
+    room = get_object_or_404(Room, id=room_id)
+
+    # Handle form submission if POST request
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
+            # Process form data (save booking, send confirmation email, etc.)
+            # Example: Saving the booking
             booking = form.save(commit=False)
-            booking.user = request.user
-            booking.room = room
+            booking.room = room  # Associate booking with the room
             booking.save()
-            room.available = True
-            room.save()
-            return redirect('profile')
+            # Redirect to a success page or do something else
+            return redirect('booking_success')  # Define 'booking_success' URL in urls.py
     else:
-        form = BookingForm()
-    return render(request, 'booking/book_room.html', {'form': form, 'room': room})
+        form = BookingForm()  # Create a new form instance
+
+    # Render the booking_room.html template with the room and form
+    return render(request, 'booking/booking_room.html', {'room': room, 'form': form})
 
 @login_required
 def profile(request):
     bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'booking/home.html', {'bookings': bookings})
+    return render(request, 'booking/profile.html', {'bookings': bookings})
 
 
 def contact(request):
@@ -47,12 +57,6 @@ def contact(request):
         return HttpResponse('Thank you for message, your feedback and suggestions are appreciated')
     else:
         return render(request, 'booking/contact.html')
-
-# booking/views.py
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import SignUpForm
 
 def signup(request):
     if request.method == 'POST':
