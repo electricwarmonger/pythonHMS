@@ -1,0 +1,35 @@
+<!-- confirm_booking.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Booking</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'booking/navbar.html' %}
+
+    <main class="container mt-5">
+        <h2>Confirm Booking Details</h2>
+        <p>Room: {{ room.name }}</p>
+        <p>Check-in Date: {{ check_in }}</p>
+        <p>Check-out Date: {{ check_out }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <!-- Additional form fields as needed -->
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container text-center">
+            <p>&copy; Hotel Draco Booking System</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

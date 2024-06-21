@@ -19,29 +19,25 @@ def home(request):
     return render(request, 'booking/home.html', {'rooms': rooms})
 
 
-@login_required
-
-def booking_room(request, room_id):
-    # Retrieve the room object using room_id
-    room = get_object_or_404(Room, id=room_id)
-
-    # Handle form submission if POST request
+def booking_room(request):
     if request.method == 'POST':
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            # Process form data (save booking, send confirmation email, etc.)
-            # Example: Saving the booking
-            booking = form.save(commit=False)
-            booking.room = room  # Associate booking with the room
-            booking.save()
-            # Redirect to a success page or do something else
-            return redirect('booking_success')  # Define 'booking_success' URL in urls.py
+        room_id = request.POST.get('room_id')
+        check_in = request.POST.get('check_in')
+        check_out = request.POST.get('check_out')
+
+        # Store booking details in session
+        request.session['booking_details'] = {
+            'room_id': room_id,
+            'check_in': check_in,
+            'check_out': check_out,
+        }
+
+        return redirect('confirm_booking')  # Redirect to confirmation page
     else:
-        form = BookingForm()  # Create a new form instance
+        rooms = Room.objects.filter(is_available=True)
+        return render(request, 'booking/booking_room.html', {'rooms': rooms})
 
-    # Render the booking_room.html template with the room and form
-    return render(request, 'booking/booking_room.html', {'room': room, 'form': form})
-
+    
 @login_required
 def profile(request):
     bookings = Booking.objects.filter(user=request.user)

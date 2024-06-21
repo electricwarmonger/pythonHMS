@@ -1,18 +1,44 @@
-<!-- booking/templates/booking/booking_room.html -->
+<!-- booking_room.html -->
 
-{% extends 'booking/base.html' %}
-{% block title %}Book Room{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Room</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'booking/navbar.html' %}
 
-{% block content %}
-<div class="container mt-5">
-    <h1>Book Room {{ room.room_number }}</h1>
-    <hr>
+    <main class="container mt-5">
+        <h2>Select Room and Dates</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="room">Select Room:</label>
+            <select name="room_id" id="room">
+                {% for room in rooms %}
+                    <option value="{{ room.id }}">{{ room.name }} - ${{ room.price }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for="check_in">Check-in Date:</label>
+            <input type="date" name="check_in" id="check_in" required>
+            <br><br>
+            <label for="check_out">Check-out Date:</label>
+            <input type="date" name="check_out" id="check_out" required>
+            <br><br>
+            <button type="submit">Book Now</button>
+        </form>
+    </main>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container text-center">
+            <p>&copy; Hotel Draco Booking System</p>
+        </div>
+    </footer>
 
-        <button type="submit" class="btn btn-primary mt-3">Book</button>
-    </form>
-</div>
-{% endblock %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
