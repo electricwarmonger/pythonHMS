@@ -42,15 +42,42 @@
         </div>
     
    
-    <div class="rooms">
-        {% for room in rooms %}
 
-        <div class="room">
-            <h3>Room {{ room.room_number }} ({{ room.room_type }})</h3>
-            <p>Price: ${{ room.price }}</p>
+<div class="container mt-5">
+    <div class="row">
+        {% for room in rooms %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if room.image %}
+                <img src="{{ room.image.url }}" class="card-img-top" alt="{{ room.room_type }}">
+                {% else %}
+                <img src="{% static 'images/default-room.jpg' %}" class="card-img-top" alt="Default Image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ room.room_type }}</h5>
+                    
+                </div>
+            </div>
         </div>
         {% endfor %}
-    </div> 
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+    }
+</style>
+
 {% endblock %}
 
 

@@ -41,15 +41,26 @@ def booking_room(request):
 def confirm_booking(request):
     # Retrieve booking details from session
     room_id = request.session.get('room_id')
+ 
+    # Example logic to retrieve room details
+    room = Room.objects.get( id=room_id)
+
+    # Render confirm_booking.html with booking details
+    return render(request, 'booking/confirm_booking.html', {'room': room})
+
+def confirm_booking(request):
+    # Retrieve room_id from session or request.POST
+    room_id = request.session.get('room_id')  
     check_in = request.session.get('check_in')
     check_out = request.session.get('check_out')
 
-    # Example logic to retrieve room details
-    room = Room.objects.get(id=room_id)
+    # Retrieve the Room object or return 404 if not found
+    room = get_object_or_404(Room, id=room_id)
 
-    # Render confirm_booking.html with booking details
+    # Example: Retrieve other necessary data or process booking logic
+    # ...
+
     return render(request, 'booking/confirm_booking.html', {'room': room, 'check_in': check_in, 'check_out': check_out})
-
 @login_required
 def profile(request):
     bookings = Booking.objects.filter(user=request.user)

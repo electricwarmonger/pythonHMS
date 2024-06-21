@@ -11,18 +11,23 @@
 </head>
 <body>
     {% include 'booking/navbar.html' %}
-
-    <main class="container mt-5">
+    {% if room %}
+    <h1>Confirm Booking for Room {{ room.room_number }}</h1>
+     <main class="container mt-5">
         <h2>Confirm Booking Details</h2>
         <p>Room: {{ room.name }}</p>
         <p>Check-in Date: {{ check_in }}</p>
         <p>Check-out Date: {{ check_out }}</p>
         <form method="post">
             {% csrf_token %}
-            <!-- Additional form fields as needed -->
+          
             <button type="submit">Confirm Booking</button>
         </form>
     </main>
+{% else %}
+    <p>Room details not found.</p>
+{% endif %}
+   
 
     <footer class="bg-dark text-white py-3 mt-5">
         <div class="container text-center">
