@@ -25,19 +25,18 @@
 <body>
   
         <div class="container m-auto p-lg-5">
-           
+            <div class="card m-auto">
                 <div class="row ">
                     <div class="col-md-4">
-                        <img src="{% static 'booking\images\bg2-img.jpeg' %}" alt="Background Image" class="card-img">
-
+                        <img src="{% static 'booking\images\bg2-img.jpeg' %}" alt="Background Image" style="height:300px" class="card-img">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h2 class="card-title">About Our Hotel</h2>
                             <p class="card-text">Welcome to our hotel. We strive to provide the best hospitality services.</p>
-                            {% lorem 1 p random %}
-                        </div>
-                    
+                        {% lorem 1 b random %}
+                          </div>
+                    </div>
                 </div>
             </div>
         </div>

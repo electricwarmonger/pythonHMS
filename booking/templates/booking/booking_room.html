@@ -1,4 +1,14 @@
-<!-- booking_room.html -->
+
+
+<form method="post" action="{% url 'confirm_booking' %}">
+    {% csrf_token %}
+    <!-- Include form fields for booking details here -->
+    <button type="submit">Confirm Booking</button>
+</form>
+
+
+
+{% comment %} <!-- booking_room.html -->
 
 {% load static %}
 <!DOCTYPE html>
@@ -41,4 +51,4 @@
 
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
-</html>
+</html> {% endcomment %}

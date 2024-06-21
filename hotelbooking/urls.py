@@ -32,7 +32,8 @@ urlpatterns = [
     path('profile/', booking_views.profile, name='profile'),
     path('booking_room/', booking_views.booking_room, name='booking_room'),
      path('contact/', booking_views.contact, name='contact'),
-            path('signup/', booking_views.signup, name='signup'),
+       path('signup/', booking_views.signup, name='signup'),
     path('login/', booking_views.login_view, name='login'),
+path('confirm_booking/', booking_views.confirm_booking, name='confirm_booking'),
 
 ] 
